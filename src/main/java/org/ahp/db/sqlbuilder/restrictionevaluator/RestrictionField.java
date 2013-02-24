@@ -7,7 +7,7 @@ import java.util.Collection;
 
 /**
  * 
- * @author Shankar Karthik Vaithianathan
+ * @author Shankar K. Vaithianathan
  *
  */
 public class RestrictionField {
