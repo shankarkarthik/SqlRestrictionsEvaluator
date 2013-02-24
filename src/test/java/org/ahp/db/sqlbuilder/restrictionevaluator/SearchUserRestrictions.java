@@ -10,7 +10,7 @@ import org.ahp.db.sqlbuilder.restrictionevaluator.enums.RestrictionJoinCondition
  * @author Shankar K. Vaithianathan
  *
  */
-public enum UserFieldParameters implements IRestrictionFieldParameters {
+public enum SearchUserRestrictions implements IRestrictionFieldParameters {
 
 	USER_ID( "user.user_id", Restriction.ID_EQ, RestrictionJoinCondition.AND, RestrictionDataType.NUMBER, RestrictionConstructionType.AUTO ),
 	ADDRESS_ID( "address.address_id", Restriction.ID_EQ, RestrictionJoinCondition.AND, RestrictionDataType.NUMBER, RestrictionConstructionType.AUTO ),
@@ -31,7 +31,7 @@ public enum UserFieldParameters implements IRestrictionFieldParameters {
 	 * @param pRestrictionDataType
 	 * @param pRestrictionConstructionType
 	 */
-	private UserFieldParameters( String pRestrictableFieldName,
+	private SearchUserRestrictions( String pRestrictableFieldName,
 			                     Restriction pRestriction,
 			                     RestrictionJoinCondition pRestrictionJoinCondition,
 			                     RestrictionDataType pRestrictionDataType,

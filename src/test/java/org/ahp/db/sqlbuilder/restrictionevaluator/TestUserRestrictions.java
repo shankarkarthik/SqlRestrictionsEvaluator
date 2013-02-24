@@ -30,11 +30,11 @@ public class TestUserRestrictions {
 	public void setup(){
 		mRestrictionFields = new ArrayList<RestrictionField>();
 		RestrictionField lUserEmailField = new RestrictionField();
-		lUserEmailField.setFieldParameters( UserFieldParameters.USER_EMAIL );
+		lUserEmailField.setFieldParameters( SearchUserRestrictions.USER_EMAIL );
 		lUserEmailField.setFieldInput( "test@example" );
 
 		RestrictionField lAddressIdField = new RestrictionField();
-		lAddressIdField.setFieldParameters( UserFieldParameters.ADDRESS_ID );
+		lAddressIdField.setFieldParameters( SearchUserRestrictions.ADDRESS_ID );
 		lAddressIdField.setId( new Long( 101 ) );
 		mRestrictionFields.add( lUserEmailField );
 		mRestrictionFields.add( lAddressIdField );
