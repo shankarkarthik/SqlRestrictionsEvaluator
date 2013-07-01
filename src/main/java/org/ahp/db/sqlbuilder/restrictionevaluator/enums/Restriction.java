@@ -15,112 +15,112 @@ import org.ahp.db.sqlbuilder.restrictionevaluator.RestrictionField;
  */
 public enum Restriction {
 	BETWEEN	{
-		public String evaluateFieldRestriction( IRestrictionsEvaluator pRestrictionsEvaluator, RestrictionField pRestrictionField, Map<String,Object> pNamedParametersMap ) {
-			return pRestrictionsEvaluator.between( pRestrictionField, pNamedParametersMap );
+		public String evaluateFieldRestriction( IRestrictionsEvaluator restrictionsEvaluator, RestrictionField restrictionField, Map<String,Object> namedParametersMap ) {
+			return restrictionsEvaluator.between( restrictionField, namedParametersMap );
 		}
 	},
 	EQ {
-		public String evaluateFieldRestriction( IRestrictionsEvaluator pRestrictionsEvaluator, RestrictionField pRestrictionField, Map<String,Object> pNamedParametersMap ) {
-			return pRestrictionsEvaluator.eq( pRestrictionField, pNamedParametersMap );
+		public String evaluateFieldRestriction( IRestrictionsEvaluator restrictionsEvaluator, RestrictionField restrictionField, Map<String,Object> namedParametersMap ) {
+			return restrictionsEvaluator.eq( restrictionField, namedParametersMap );
 		}
 	},
 	GE {
-		public String evaluateFieldRestriction( IRestrictionsEvaluator pRestrictionsEvaluator, RestrictionField pRestrictionField, Map<String,Object> pNamedParametersMap ) {
-			return pRestrictionsEvaluator.ge( pRestrictionField, pNamedParametersMap );
+		public String evaluateFieldRestriction( IRestrictionsEvaluator restrictionsEvaluator, RestrictionField restrictionField, Map<String,Object> namedParametersMap ) {
+			return restrictionsEvaluator.ge( restrictionField, namedParametersMap );
 		}
 	},
 	GT {
-		public String evaluateFieldRestriction( IRestrictionsEvaluator pRestrictionsEvaluator, RestrictionField pRestrictionField, Map<String,Object> pNamedParametersMap ) {
-			return pRestrictionsEvaluator.gt( pRestrictionField, pNamedParametersMap );
+		public String evaluateFieldRestriction( IRestrictionsEvaluator restrictionsEvaluator, RestrictionField restrictionField, Map<String,Object> namedParametersMap ) {
+			return restrictionsEvaluator.gt( restrictionField, namedParametersMap );
 		}
 	},
 	ID_EQ {
-		public String evaluateFieldRestriction( IRestrictionsEvaluator pRestrictionsEvaluator, RestrictionField pRestrictionField, Map<String,Object> pNamedParametersMap ) {
-			return pRestrictionsEvaluator.idEq( pRestrictionField, pNamedParametersMap );
+		public String evaluateFieldRestriction( IRestrictionsEvaluator restrictionsEvaluator, RestrictionField restrictionField, Map<String,Object> namedParametersMap ) {
+			return restrictionsEvaluator.idEq( restrictionField, namedParametersMap );
 		}
 	},
 	ILIKE_ANYWHERE {
-		public String evaluateFieldRestriction( IRestrictionsEvaluator pRestrictionsEvaluator, RestrictionField pRestrictionField, Map<String,Object> pNamedParametersMap ) {
-			return pRestrictionsEvaluator.ilikeAnywhere( pRestrictionField, pNamedParametersMap );
+		public String evaluateFieldRestriction( IRestrictionsEvaluator restrictionsEvaluator, RestrictionField restrictionField, Map<String,Object> namedParametersMap ) {
+			return restrictionsEvaluator.ilikeAnywhere( restrictionField, namedParametersMap );
 		}
 	},		
 	ILIKE_END {
-		public String evaluateFieldRestriction( IRestrictionsEvaluator pRestrictionsEvaluator, RestrictionField pRestrictionField, Map<String,Object> pNamedParametersMap ) {
-			return pRestrictionsEvaluator.ilikeEnd( pRestrictionField, pNamedParametersMap );
+		public String evaluateFieldRestriction( IRestrictionsEvaluator restrictionsEvaluator, RestrictionField restrictionField, Map<String,Object> namedParametersMap ) {
+			return restrictionsEvaluator.ilikeEnd( restrictionField, namedParametersMap );
 		}
 	},
 	ILIKE_EXACT {
-		public String evaluateFieldRestriction( IRestrictionsEvaluator pRestrictionsEvaluator, RestrictionField pRestrictionField, Map<String,Object> pNamedParametersMap ) {
-			return pRestrictionsEvaluator.ilikeExact( pRestrictionField, pNamedParametersMap );
+		public String evaluateFieldRestriction( IRestrictionsEvaluator restrictionsEvaluator, RestrictionField restrictionField, Map<String,Object> namedParametersMap ) {
+			return restrictionsEvaluator.ilikeExact( restrictionField, namedParametersMap );
 		}
 	},
 	ILIKE_START {
-		public String evaluateFieldRestriction( IRestrictionsEvaluator pRestrictionsEvaluator, RestrictionField pRestrictionField, Map<String,Object> pNamedParametersMap) {
-			return pRestrictionsEvaluator.ilikeStart( pRestrictionField, pNamedParametersMap );
+		public String evaluateFieldRestriction( IRestrictionsEvaluator restrictionsEvaluator, RestrictionField restrictionField, Map<String,Object> namedParametersMap) {
+			return restrictionsEvaluator.ilikeStart( restrictionField, namedParametersMap );
 		}
 	},		
 	IN {
-		public String evaluateFieldRestriction( IRestrictionsEvaluator pRestrictionsEvaluator, RestrictionField pRestrictionField, Map<String,Object> pNamedParametersMap ) {
-			return pRestrictionsEvaluator.in( pRestrictionField, pNamedParametersMap );
+		public String evaluateFieldRestriction( IRestrictionsEvaluator restrictionsEvaluator, RestrictionField restrictionField, Map<String,Object> namedParametersMap ) {
+			return restrictionsEvaluator.in( restrictionField, namedParametersMap );
 		}
 	},
 	IS_NOT_NULL {
-		public String evaluateFieldRestriction( IRestrictionsEvaluator pRestrictionsEvaluator, RestrictionField pRestrictionField, Map<String,Object> pNamedParametersMap ) {
-			return pRestrictionsEvaluator.isNotNull( pRestrictionField, pNamedParametersMap );
+		public String evaluateFieldRestriction( IRestrictionsEvaluator restrictionsEvaluator, RestrictionField restrictionField, Map<String,Object> namedParametersMap ) {
+			return restrictionsEvaluator.isNotNull( restrictionField, namedParametersMap );
 		}
 	},
 	LE {
-		public String evaluateFieldRestriction( IRestrictionsEvaluator pRestrictionsEvaluator, RestrictionField pRestrictionField, Map<String,Object> pNamedParametersMap ) {
-			return pRestrictionsEvaluator.le( pRestrictionField, pNamedParametersMap );
+		public String evaluateFieldRestriction( IRestrictionsEvaluator restrictionsEvaluator, RestrictionField restrictionField, Map<String,Object> namedParametersMap ) {
+			return restrictionsEvaluator.le( restrictionField, namedParametersMap );
 		}
 	},
 	LIKE_ANYWHERE {
-		public String evaluateFieldRestriction( IRestrictionsEvaluator pRestrictionsEvaluator, RestrictionField pRestrictionField, Map<String,Object> pNamedParametersMap ) {
-			return pRestrictionsEvaluator.likeAnywhere( pRestrictionField, pNamedParametersMap );
+		public String evaluateFieldRestriction( IRestrictionsEvaluator restrictionsEvaluator, RestrictionField restrictionField, Map<String,Object> namedParametersMap ) {
+			return restrictionsEvaluator.likeAnywhere( restrictionField, namedParametersMap );
 		}
 	},
 	LIKE_END {
-		public String evaluateFieldRestriction( IRestrictionsEvaluator pRestrictionsEvaluator, RestrictionField pRestrictionField, Map<String,Object> pNamedParametersMap ) {
-			return pRestrictionsEvaluator.likeEnd( pRestrictionField, pNamedParametersMap );
+		public String evaluateFieldRestriction( IRestrictionsEvaluator restrictionsEvaluator, RestrictionField restrictionField, Map<String,Object> namedParametersMap ) {
+			return restrictionsEvaluator.likeEnd( restrictionField, namedParametersMap );
 		}
 	},
 	LIKE_EXACT {
-		public String evaluateFieldRestriction( IRestrictionsEvaluator pRestrictionsEvaluator, RestrictionField pRestrictionField, Map<String,Object> pNamedParametersMap ) {
-			return pRestrictionsEvaluator.likeExact( pRestrictionField, pNamedParametersMap );
+		public String evaluateFieldRestriction( IRestrictionsEvaluator restrictionsEvaluator, RestrictionField restrictionField, Map<String,Object> namedParametersMap ) {
+			return restrictionsEvaluator.likeExact( restrictionField, namedParametersMap );
 		}
 	},
 	LIKE_START {
-		public String evaluateFieldRestriction( IRestrictionsEvaluator pRestrictionsEvaluator, RestrictionField pRestrictionField, Map<String,Object> pNamedParametersMap ) {
-			return pRestrictionsEvaluator.likeStart( pRestrictionField, pNamedParametersMap );
+		public String evaluateFieldRestriction( IRestrictionsEvaluator restrictionsEvaluator, RestrictionField restrictionField, Map<String,Object> namedParametersMap ) {
+			return restrictionsEvaluator.likeStart( restrictionField, namedParametersMap );
 		}
 	},
 	LT {
-		public String evaluateFieldRestriction( IRestrictionsEvaluator pRestrictionsEvaluator, RestrictionField pRestrictionField, Map<String,Object> pNamedParametersMap ) {
-			return pRestrictionsEvaluator.lt( pRestrictionField, pNamedParametersMap );
+		public String evaluateFieldRestriction( IRestrictionsEvaluator restrictionsEvaluator, RestrictionField restrictionField, Map<String,Object> namedParametersMap ) {
+			return restrictionsEvaluator.lt( restrictionField, namedParametersMap );
 		}
 	},
 	DISJUNCTION {
-		public String evaluateFieldRestriction( IRestrictionsEvaluator pRestrictionsEvaluator, RestrictionField pRestrictionField, Map<String,Object> pNamedParametersMap ) {
-			return pRestrictionsEvaluator.disjunction( pRestrictionField, pNamedParametersMap );
+		public String evaluateFieldRestriction( IRestrictionsEvaluator restrictionsEvaluator, RestrictionField restrictionField, Map<String,Object> namedParametersMap ) {
+			return restrictionsEvaluator.disjunction( restrictionField, namedParametersMap );
 		}
 	},
 	CONJUNCTION {
-		public String evaluateFieldRestriction( IRestrictionsEvaluator pRestrictionsEvaluator, RestrictionField pRestrictionField, Map<String,Object> pNamedParametersMap ) {
-			return pRestrictionsEvaluator.conjunction( pRestrictionField, pNamedParametersMap );
+		public String evaluateFieldRestriction( IRestrictionsEvaluator restrictionsEvaluator, RestrictionField restrictionField, Map<String,Object> namedParametersMap ) {
+			return restrictionsEvaluator.conjunction( restrictionField, namedParametersMap );
 		}
 	},
 	NE {
-		public String evaluateFieldRestriction( IRestrictionsEvaluator pRestrictionsEvaluator, RestrictionField pRestrictionField, Map<String,Object> pNamedParametersMap ) {
-			return pRestrictionsEvaluator.ne( pRestrictionField, pNamedParametersMap );
+		public String evaluateFieldRestriction( IRestrictionsEvaluator restrictionsEvaluator, RestrictionField restrictionField, Map<String,Object> namedParametersMap ) {
+			return restrictionsEvaluator.ne( restrictionField, namedParametersMap );
 		}
 	};
 	
 	/**
 	 * 
-	 * @param pRestrictionsEvaluator
-	 * @param pRestrictionField
-	 * @param pNamedParametersMap
+	 * @param restrictionsEvaluator
+	 * @param restrictionField
+	 * @param namedParametersMap
 	 * @return
 	 */
-	public abstract String evaluateFieldRestriction( IRestrictionsEvaluator pRestrictionsEvaluator, RestrictionField pRestrictionField, Map<String,Object> pNamedParametersMap );
+	public abstract String evaluateFieldRestriction( IRestrictionsEvaluator restrictionsEvaluator, RestrictionField restrictionField, Map<String,Object> namedParametersMap );
 }

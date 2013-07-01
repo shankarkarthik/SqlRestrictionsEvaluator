@@ -22,8 +22,8 @@ TO DO: Add as a Maven dependency:
 ## Usage
 
 * Define your restrictable field parameters as an Enum by implementing IRestrictionFieldParameters interface
-* Based on dynamic user inputs create `RestrictionField`s. 
-* Choose the appropriate dialexts to evaluate your restrictions. 
+* Based on dynamic user inputs create corresponding `RestrictionField`s. 
+* Choose the appropriate dialects to evaluate your restrictions and building the SQL query for the desired database. 
 
 ## Examples
 Tables:
@@ -44,100 +44,114 @@ public enum SearchUserRestrictions implements IRestrictionFieldParameters {
 	USER_FIRST_NAME( "user.first_name", Restriction.ILIKE_ANYWHERE, RestrictionJoinCondition.AND, RestrictionDataType.STRING, RestrictionConstructionType.AUTO ),
 	USER_EMAIL( "user.email", Restriction.ILIKE_ANYWHERE, RestrictionJoinCondition.AND, RestrictionDataType.STRING, RestrictionConstructionType.AUTO );
 
-	String mRestrictableFieldName;
-	Restriction mRestriction;
-	RestrictionJoinCondition mRestrictionJoinCondition;
-	RestrictionDataType mRestrictionDataType;
-	RestrictionConstructionType mRestrictionConstructionType;
+	String restrictableFieldName;
+	Restriction restriction;
+	RestrictionJoinCondition restrictionJoinCondition;
+	RestrictionDataType restrictionDataType;
+	RestrictionConstructionType restrictionConstructionType;
 
-	private SearchUserRestrictions( String pRestrictableFieldName,
-			                        Restriction pRestriction,
-			                        RestrictionJoinCondition pRestrictionJoinCondition,
-			                        RestrictionDataType pRestrictionDataType,
-			                        RestrictionConstructionType pRestrictionConstructionType ){
-		this.mRestrictableFieldName = pRestrictableFieldName;
-		this.mRestriction = pRestriction;
-		this.mRestrictionJoinCondition = pRestrictionJoinCondition;
-		this.mRestrictionDataType = pRestrictionDataType;
-		this.mRestrictionConstructionType = pRestrictionConstructionType;
+	/**
+	 *
+	 * @param restrictableFieldName
+	 * @param restriction
+	 * @param restrictionJoinCondition
+	 * @param restrictionDataType
+	 * @param restrictionConstructionType
+	 */
+	private SearchUserRestrictions( String restrictableFieldName,
+			                        Restriction restriction,
+			                        RestrictionJoinCondition restrictionJoinCondition,
+			                        RestrictionDataType restrictionDataType,
+			                        RestrictionConstructionType restrictionConstructionType ){
+		this.restrictableFieldName = restrictableFieldName;
+		this.restriction = restriction;
+		this.restrictionJoinCondition = restrictionJoinCondition;
+		this.restrictionDataType = restrictionDataType;
+		this.restrictionConstructionType = restrictionConstructionType;
 	}
 
 	public String getRestrictableFieldName(){
-		return this.mRestrictableFieldName;
+		return this.restrictableFieldName;
 	}
 
 	public Restriction getRestriction(){
-		return this.mRestriction;
+		return this.restriction;
 	}
 	public RestrictionJoinCondition getRestrictionJoinCondition(){
-		return this.mRestrictionJoinCondition;
+		return this.restrictionJoinCondition;
 	}
 	public RestrictionDataType getRestrictionDataType(){
-		return this.mRestrictionDataType;
+		return this.restrictionDataType;
 	}
 	public RestrictionConstructionType getRestrictionConstructionType(){
-		return this.mRestrictionConstructionType;
+		return this.restrictionConstructionType;
 	}
+}
+
 ```
 Build Dynamic Query based on user inputs.
 
 ```java
 public class TestUserRestrictions {
 
-    private final static Logger LOGGER = Logger.getLogger( TestUserRestrictions.class .getName() ); 
-    
-    List<RestrictionField> mRestrictionFields;
-    List<String> mOrderBy;
-    List<String> mGroupBy;
-    
-    @Before
-    public void setup(){
-        mRestrictionFields = new ArrayList<RestrictionField>();
-        RestrictionField lUserEmailField = new RestrictionField();
-        lUserEmailField.setFieldParameters( UserFieldParameters.USER_EMAIL );
-        lUserEmailField.setFieldInput( "test@example" );
+	private final static Logger LOGGER = Logger.getLogger( TestUserRestrictions.class .getName() );
 
-        RestrictionField lAddressIdField = new RestrictionField();
-        lAddressIdField.setFieldParameters( UserFieldParameters.ADDRESS_ID );
-        lAddressIdField.setId( new Long( 101 ) );
-        mRestrictionFields.add( lUserEmailField );
-        mRestrictionFields.add( lAddressIdField );
-        
-        mOrderBy = new ArrayList<String>();
-        mOrderBy.add( "user.last_name" );
-        mOrderBy.add( "user.first_name" );
-        mGroupBy = new ArrayList<String>();
-        mGroupBy.add( "user.last_name" );
-        mGroupBy.add( "user.first_name" );
-    }
-    
-    @Test
-    public void searchUser() {      
-        IRestrictionsEvaluator lMySqlRestrictionsEvaluator = new MySqlRestrictionsEvaluator();
-        StringBuilder lDataQuery = new StringBuilder();
-        lDataQuery.append( " SELECT user.last_name, user.first_name FROM user, address " );
-        lDataQuery.append( " WHERE (1=1) " );
-        Map<String,Object> lNamedParametersMap = buildWhereRestrictions( lDataQuery, mRestrictionFields, lMySqlRestrictionsEvaluator );
-        lDataQuery.append( lMySqlRestrictionsEvaluator.orderBy( mOrderBy, SortOrder.ASC ) );
-        lDataQuery.append( lMySqlRestrictionsEvaluator.groupBy( mGroupBy ) );
-        lDataQuery.append( lMySqlRestrictionsEvaluator.limit( 1, 0, 20 ) );
-        LOGGER.info( lDataQuery.toString() );
-        LOGGER.info( lNamedParametersMap.toString() );
+	List<RestrictionField> restrictionFields;
+	List<String> orderBy;
+	List<String> groupBy;
+
+	@Before
+	public void setup(){
+		restrictionFields = new ArrayList<RestrictionField>();
+		RestrictionField userEmailField = new RestrictionField();
+		userEmailField.setFieldParameters( SearchUserRestrictions.USER_EMAIL );
+		userEmailField.setFieldInput( "test@example" );
+
+		RestrictionField addressIdField = new RestrictionField();
+		addressIdField.setFieldParameters( SearchUserRestrictions.ADDRESS_ID );
+		addressIdField.setId( new Long( 101 ) );
+		
+		restrictionFields.add( userEmailField );
+		restrictionFields.add( addressIdField );
+
+		orderBy = new ArrayList<String>();
+		orderBy.add( "user.last_name" );
+		orderBy.add( "user.first_name" );
+		groupBy = new ArrayList<String>();
+		groupBy.add( "user.last_name" );
+		groupBy.add( "user.first_name" );
+	}
+
+	/**
+	 * Note, this test does not assert anything and is written for showcasing the module use.
+	 */
+	@Test
+    public void searchUser() {
+		IRestrictionsEvaluator mySqlRestrictionsEvaluator = new MySqlRestrictionsEvaluator();
+		StringBuilder dataQuery = new StringBuilder();
+		dataQuery.append( " SELECT user.last_name, user.first_name FROM user, address " );
+		dataQuery.append( " WHERE (1=1) " );
+		Map<String,Object> namedParametersMap = buildWhereRestrictions( dataQuery, restrictionFields, mySqlRestrictionsEvaluator );
+		dataQuery.append( mySqlRestrictionsEvaluator.orderBy( orderBy, SortOrder.ASC ) );
+		dataQuery.append( mySqlRestrictionsEvaluator.groupBy( groupBy ) );
+		dataQuery.append( mySqlRestrictionsEvaluator.limit( 1, 0, 20 ) );
+		LOGGER.info( dataQuery.toString() );
+		LOGGER.info( namedParametersMap.toString() );
     }
 
-    private Map<String,Object> buildWhereRestrictions( StringBuilder pQuery, List<RestrictionField> pRestrictionFields, IRestrictionsEvaluator pMySqlRestrictionsEvaluator ){
-        Map<String,Object> lNamedParametersMap = new HashMap<String,Object>();
-        for ( RestrictionField lRestrictionField : pRestrictionFields ) {
-            pQuery.append( lRestrictionField.getFieldParameters().getRestrictionJoinCondition() );
-            pQuery.append( lRestrictionField.getFieldParameters().getRestriction().evaluateFieldRestriction( pMySqlRestrictionsEvaluator, lRestrictionField, lNamedParametersMap ) );
-        }
-        return lNamedParametersMap;
-    }
+	private Map<String,Object> buildWhereRestrictions( StringBuilder query, List<RestrictionField> restrictionFields, IRestrictionsEvaluator mySqlRestrictionsEvaluator ){
+		Map<String,Object> namedParametersMap = new HashMap<String,Object>();
+		for ( RestrictionField restrictionField : restrictionFields ) {
+			query.append( restrictionField.getFieldParameters().getRestrictionJoinCondition() );
+			query.append( restrictionField.getFieldParameters().getRestriction().evaluateFieldRestriction( mySqlRestrictionsEvaluator, restrictionField, namedParametersMap ) );
+		}
+		return namedParametersMap;
+	}
 
 }
 ```
 
-### SQL with Restrictions is built as below
+### SQL Query with Restrictions will be built as below
 
 ```java
 SELECT 

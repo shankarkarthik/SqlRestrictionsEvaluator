@@ -17,46 +17,46 @@ public enum SearchUserRestrictions implements IRestrictionFieldParameters {
 	USER_FIRST_NAME( "user.first_name", Restriction.ILIKE_ANYWHERE, RestrictionJoinCondition.AND, RestrictionDataType.STRING, RestrictionConstructionType.AUTO ),
 	USER_EMAIL( "user.email", Restriction.ILIKE_ANYWHERE, RestrictionJoinCondition.AND, RestrictionDataType.STRING, RestrictionConstructionType.AUTO );
 
-	String mRestrictableFieldName;
-	Restriction mRestriction;
-	RestrictionJoinCondition mRestrictionJoinCondition;
-	RestrictionDataType mRestrictionDataType;
-	RestrictionConstructionType mRestrictionConstructionType;
+	String restrictableFieldName;
+	Restriction restriction;
+	RestrictionJoinCondition restrictionJoinCondition;
+	RestrictionDataType restrictionDataType;
+	RestrictionConstructionType restrictionConstructionType;
 
 	/**
 	 *
-	 * @param pRestrictableFieldName
-	 * @param pRestriction
-	 * @param pRestrictionJoinCondition
-	 * @param pRestrictionDataType
-	 * @param pRestrictionConstructionType
+	 * @param restrictableFieldName
+	 * @param restriction
+	 * @param restrictionJoinCondition
+	 * @param restrictionDataType
+	 * @param restrictionConstructionType
 	 */
-	private SearchUserRestrictions( String pRestrictableFieldName,
-			                     Restriction pRestriction,
-			                     RestrictionJoinCondition pRestrictionJoinCondition,
-			                     RestrictionDataType pRestrictionDataType,
-			                     RestrictionConstructionType pRestrictionConstructionType ){
-		this.mRestrictableFieldName = pRestrictableFieldName;
-		this.mRestriction = pRestriction;
-		this.mRestrictionJoinCondition = pRestrictionJoinCondition;
-		this.mRestrictionDataType = pRestrictionDataType;
-		this.mRestrictionConstructionType = pRestrictionConstructionType;
+	private SearchUserRestrictions( String restrictableFieldName,
+			                        Restriction restriction,
+			                        RestrictionJoinCondition restrictionJoinCondition,
+			                        RestrictionDataType restrictionDataType,
+			                        RestrictionConstructionType restrictionConstructionType ){
+		this.restrictableFieldName = restrictableFieldName;
+		this.restriction = restriction;
+		this.restrictionJoinCondition = restrictionJoinCondition;
+		this.restrictionDataType = restrictionDataType;
+		this.restrictionConstructionType = restrictionConstructionType;
 	}
 
 	public String getRestrictableFieldName(){
-		return this.mRestrictableFieldName;
+		return this.restrictableFieldName;
 	}
 
 	public Restriction getRestriction(){
-		return this.mRestriction;
+		return this.restriction;
 	}
 	public RestrictionJoinCondition getRestrictionJoinCondition(){
-		return this.mRestrictionJoinCondition;
+		return this.restrictionJoinCondition;
 	}
 	public RestrictionDataType getRestrictionDataType(){
-		return this.mRestrictionDataType;
+		return this.restrictionDataType;
 	}
 	public RestrictionConstructionType getRestrictionConstructionType(){
-		return this.mRestrictionConstructionType;
+		return this.restrictionConstructionType;
 	}
 }

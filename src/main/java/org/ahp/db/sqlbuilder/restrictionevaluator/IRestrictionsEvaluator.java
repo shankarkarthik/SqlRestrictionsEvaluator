@@ -11,29 +11,52 @@ import org.ahp.db.sqlbuilder.restrictionevaluator.enums.SortOrder;
  */
 public interface IRestrictionsEvaluator {
 
-	public String idEq( RestrictionField pRestrictionField, Map<String,Object> pNamedParametersMap );
-	public String eq( RestrictionField pRestrictionField, Map<String,Object> pNamedParametersMap );
-	public String ne( RestrictionField pRestrictionField, Map<String,Object> pNamedParametersMap );
-	public String likeExact( RestrictionField pRestrictionField, Map<String,Object> pNamedParametersMap );
-	public String likeStart( RestrictionField pRestrictionField, Map<String,Object> pNamedParametersMap );
-	public String likeEnd( RestrictionField pRestrictionField, Map<String,Object> pNamedParametersMap );
-	public String likeAnywhere( RestrictionField pRestrictionField, Map<String,Object> pNamedParametersMap );
-	public String ilikeExact( RestrictionField pRestrictionField, Map<String,Object> pNamedParametersMap );
-	public String ilikeStart( RestrictionField pRestrictionField, Map<String,Object> pNamedParametersMap );
-	public String ilikeEnd( RestrictionField pRestrictionField, Map<String,Object> pNamedParametersMap );
-	public String ilikeAnywhere( RestrictionField pRestrictionField, Map<String,Object> pNamedParametersMap );
-	public String gt( RestrictionField pRestrictionField, Map<String,Object> pNamedParametersMap );
-	public String lt( RestrictionField pRestrictionField, Map<String,Object> pNamedParametersMap );
-	public String le( RestrictionField pRestrictionField, Map<String,Object> pNamedParametersMap );
-	public String ge( RestrictionField pRestrictionField, Map<String,Object> pNamedParametersMap);
-	public String between(  RestrictionField pRestrictionField, Map<String,Object> pNamedParametersMap );
-	public String in( RestrictionField pRestrictionField, Map<String,Object> pNamedParametersMap );
-	public String isNull( RestrictionField pRestrictionField, Map<String,Object> pNamedParametersMap );
-	public String isNotNull( RestrictionField pRestrictionField, Map<String,Object> pNamedParametersMap );
-	public String conjunction( RestrictionField pRestrictionField, Map<String,Object> pNamedParametersMap );
-	public String disjunction( RestrictionField pRestrictionField, Map<String,Object> pNamedParametersMap );
-	public String orderBy( List<String> pOrderByList, SortOrder pSortOrder );
-	public String groupBy( List<String> pGroupByList );
-	public String limit( int pLimitFrom, int pLimitTo, int pLimitSize );
+	public String idEq( RestrictionField restrictionField, Map<String,Object> namedParametersMap );
+	
+	public String eq( RestrictionField restrictionField, Map<String,Object> namedParametersMap );
+	
+	public String ne( RestrictionField restrictionField, Map<String,Object> namedParametersMap );
+	
+	public String likeExact( RestrictionField restrictionField, Map<String,Object> namedParametersMap );
+	
+	public String likeStart( RestrictionField restrictionField, Map<String,Object> namedParametersMap );
+	
+	public String likeEnd( RestrictionField restrictionField, Map<String,Object> namedParametersMap );
+	
+	public String likeAnywhere( RestrictionField restrictionField, Map<String,Object> namedParametersMap );
+	
+	public String ilikeExact( RestrictionField restrictionField, Map<String,Object> namedParametersMap );
+	
+	public String ilikeStart( RestrictionField restrictionField, Map<String,Object> namedParametersMap );
+	
+	public String ilikeEnd( RestrictionField restrictionField, Map<String,Object> namedParametersMap );
+	
+	public String ilikeAnywhere( RestrictionField restrictionField, Map<String,Object> namedParametersMap );
+	
+	public String gt( RestrictionField restrictionField, Map<String,Object> namedParametersMap );
+	
+	public String lt( RestrictionField restrictionField, Map<String,Object> namedParametersMap );
+
+	public String le( RestrictionField restrictionField, Map<String,Object> namedParametersMap );
+	
+	public String ge( RestrictionField restrictionField, Map<String,Object> namedParametersMap);
+	
+	public String between(  RestrictionField restrictionField, Map<String,Object> namedParametersMap );
+	
+	public String in( RestrictionField restrictionField, Map<String,Object> namedParametersMap );
+	
+	public String isNull( RestrictionField restrictionField, Map<String,Object> namedParametersMap );
+	
+	public String isNotNull( RestrictionField restrictionField, Map<String,Object> namedParametersMap );
+	
+	public String conjunction( RestrictionField restrictionField, Map<String,Object> namedParametersMap );
+	
+	public String disjunction( RestrictionField restrictionField, Map<String,Object> namedParametersMap );
+	
+	public String orderBy( List<String> orderByList, SortOrder sortOrder );
+	
+	public String groupBy( List<String> groupByList );
+	
+	public String limit( int limitFrom, int limitTo, int limitSize );
 	
 }

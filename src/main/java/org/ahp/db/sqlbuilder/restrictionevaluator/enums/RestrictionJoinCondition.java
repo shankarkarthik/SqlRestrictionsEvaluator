@@ -12,13 +12,13 @@ public enum RestrictionJoinCondition {
 	OR ( " OR " ),
 	NOT ( " NOT " );
 	
-	private String mConditionOperator;
+	private String conditionOperator;
 	
-	private RestrictionJoinCondition( String pConditionOperator ) {
-		this.mConditionOperator = pConditionOperator;
+	private RestrictionJoinCondition( String conditionOperator ) {
+		this.conditionOperator = conditionOperator;
 	}
 	
 	public String getConditionOperator(){
-		return this.mConditionOperator;
+		return this.conditionOperator;
 	}
 }

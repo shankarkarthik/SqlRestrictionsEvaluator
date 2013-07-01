@@ -23,144 +23,144 @@ public class MySqlRestrictionsEvaluator implements IRestrictionsEvaluator {
 	public MySqlRestrictionsEvaluator() {
 	}
 
-	public String idEq( RestrictionField pRestrictionField, Map<String,Object> pNamedParametersMap ) {
-		pNamedParametersMap.put( pRestrictionField.getFieldParameters().toString(), pRestrictionField.getId() );
-		return " " + pRestrictionField.getFieldParameters().toString() + " = " + pRestrictionField.getNamedParameter() + " ";
+	public String idEq( RestrictionField restrictionField, Map<String,Object> namedParametersMap ) {
+		namedParametersMap.put( restrictionField.getFieldParameters().toString(), restrictionField.getId() );
+		return " " + restrictionField.getFieldParameters().toString() + " = " + restrictionField.getNamedParameter() + " ";
 	}
 
-	public String eq( RestrictionField pRestrictionField, Map<String,Object> pNamedParametersMap ) {
-		pNamedParametersMap.put( pRestrictionField.getFieldParameters().toString(), pRestrictionField.getFieldInput() );
-		return " " + pRestrictionField.getFieldParameters().toString() + " = " + pRestrictionField.getNamedParameter() + " ";
+	public String eq( RestrictionField restrictionField, Map<String,Object> namedParametersMap ) {
+		namedParametersMap.put( restrictionField.getFieldParameters().toString(), restrictionField.getFieldInput() );
+		return " " + restrictionField.getFieldParameters().toString() + " = " + restrictionField.getNamedParameter() + " ";
 	}
 
-	public String ne( RestrictionField pRestrictionField, Map<String,Object> pNamedParametersMap ) {
-		pNamedParametersMap.put( pRestrictionField.getFieldParameters().toString(), pRestrictionField.getFieldInput() );
-		return " " + pRestrictionField.getFieldParameters().toString() + " <> " + pRestrictionField.getNamedParameter() + " ";
+	public String ne( RestrictionField restrictionField, Map<String,Object> namedParametersMap ) {
+		namedParametersMap.put( restrictionField.getFieldParameters().toString(), restrictionField.getFieldInput() );
+		return " " + restrictionField.getFieldParameters().toString() + " <> " + restrictionField.getNamedParameter() + " ";
 	}
 
-	public String likeExact( RestrictionField pRestrictionField, Map<String,Object> pNamedParametersMap ) {
-		return eq( pRestrictionField, pNamedParametersMap );
+	public String likeExact( RestrictionField restrictionField, Map<String,Object> namedParametersMap ) {
+		return eq( restrictionField, namedParametersMap );
 	}
 
-	public String likeStart( RestrictionField pRestrictionField, Map<String,Object> pNamedParametersMap ) {
-		pNamedParametersMap.put( pRestrictionField.getFieldParameters().toString(), pRestrictionField.getFieldInput() + "%" );
-		return " " + pRestrictionField.getFieldParameters().toString() + " LIKE " + pRestrictionField.getNamedParameter() + " ";
+	public String likeStart( RestrictionField restrictionField, Map<String,Object> namedParametersMap ) {
+		namedParametersMap.put( restrictionField.getFieldParameters().toString(), restrictionField.getFieldInput() + "%" );
+		return " " + restrictionField.getFieldParameters().toString() + " LIKE " + restrictionField.getNamedParameter() + " ";
 	}
 
-	public String likeEnd( RestrictionField pRestrictionField, Map<String,Object> pNamedParametersMap ) {
-		pNamedParametersMap.put( pRestrictionField.getFieldParameters().toString(), pRestrictionField.getFieldInput() + "%" );
-		return " " + pRestrictionField.getFieldParameters().toString() + " LIKE " + pRestrictionField.getNamedParameter() + " ";
+	public String likeEnd( RestrictionField restrictionField, Map<String,Object> namedParametersMap ) {
+		namedParametersMap.put( restrictionField.getFieldParameters().toString(), restrictionField.getFieldInput() + "%" );
+		return " " + restrictionField.getFieldParameters().toString() + " LIKE " + restrictionField.getNamedParameter() + " ";
 	}
 
-	public String likeAnywhere( RestrictionField pRestrictionField, Map<String,Object> pNamedParametersMap ) {
-		pNamedParametersMap.put( pRestrictionField.getFieldParameters().toString(), "%" + pRestrictionField.getFieldInput() + "%" );
-		return " " + pRestrictionField.getFieldParameters().toString() + " LIKE " + pRestrictionField.getNamedParameter() + " ";
+	public String likeAnywhere( RestrictionField restrictionField, Map<String,Object> namedParametersMap ) {
+		namedParametersMap.put( restrictionField.getFieldParameters().toString(), "%" + restrictionField.getFieldInput() + "%" );
+		return " " + restrictionField.getFieldParameters().toString() + " LIKE " + restrictionField.getNamedParameter() + " ";
 	}
 
-	public String ilikeExact( RestrictionField pRestrictionField, Map<String,Object> pNamedParametersMap ) {
-		pNamedParametersMap.put( pRestrictionField.getFieldParameters().toString(), pRestrictionField.getFieldInput() );
-		return " UPPER(" + pRestrictionField.getFieldParameters().toString() + ") LIKE " + "UPPER(" + pRestrictionField.getNamedParameter() + ") ";
+	public String ilikeExact( RestrictionField restrictionField, Map<String,Object> namedParametersMap ) {
+		namedParametersMap.put( restrictionField.getFieldParameters().toString(), restrictionField.getFieldInput() );
+		return " UPPER(" + restrictionField.getFieldParameters().toString() + ") LIKE " + "UPPER(" + restrictionField.getNamedParameter() + ") ";
 	}
 
-	public String ilikeStart( RestrictionField pRestrictionField, Map<String,Object> pNamedParametersMap ) {
-		pNamedParametersMap.put( pRestrictionField.getFieldParameters().toString(), pRestrictionField.getFieldInput() + "%" );
-		return " UPPER(" + pRestrictionField.getFieldParameters().toString() + ") LIKE " + "UPPER(" + pRestrictionField.getNamedParameter() + ") ";
+	public String ilikeStart( RestrictionField restrictionField, Map<String,Object> namedParametersMap ) {
+		namedParametersMap.put( restrictionField.getFieldParameters().toString(), restrictionField.getFieldInput() + "%" );
+		return " UPPER(" + restrictionField.getFieldParameters().toString() + ") LIKE " + "UPPER(" + restrictionField.getNamedParameter() + ") ";
 	}
 
-	public String ilikeEnd( RestrictionField pRestrictionField, Map<String,Object> pNamedParametersMap ) {
-		pNamedParametersMap.put( pRestrictionField.getFieldParameters().toString(), "%" + pRestrictionField.getFieldInput() );
-		return " UPPER(" + pRestrictionField.getFieldParameters().toString() + ") LIKE " + "UPPER(" + pRestrictionField.getNamedParameter() + ") ";
+	public String ilikeEnd( RestrictionField restrictionField, Map<String,Object> namedParametersMap ) {
+		namedParametersMap.put( restrictionField.getFieldParameters().toString(), "%" + restrictionField.getFieldInput() );
+		return " UPPER(" + restrictionField.getFieldParameters().toString() + ") LIKE " + "UPPER(" + restrictionField.getNamedParameter() + ") ";
 	}
 
-	public String ilikeAnywhere( RestrictionField pRestrictionField, Map<String,Object> pNamedParametersMap ) {
-		pNamedParametersMap.put( pRestrictionField.getFieldParameters().toString(), "%" + pRestrictionField.getFieldInput() + "%" );
-		return " UPPER(" + pRestrictionField.getFieldParameters().toString() + ") LIKE " + "UPPER(" + pRestrictionField.getNamedParameter() + ") ";
+	public String ilikeAnywhere( RestrictionField restrictionField, Map<String,Object> namedParametersMap ) {
+		namedParametersMap.put( restrictionField.getFieldParameters().toString(), "%" + restrictionField.getFieldInput() + "%" );
+		return " UPPER(" + restrictionField.getFieldParameters().toString() + ") LIKE " + "UPPER(" + restrictionField.getNamedParameter() + ") ";
 	}
 
-	public String gt( RestrictionField pRestrictionField, Map<String,Object> pNamedParametersMap ) {
-		pNamedParametersMap.put( pRestrictionField.getFieldParameters().toString(), pRestrictionField.getFieldInput() );
-		return " " + pRestrictionField.getFieldParameters().toString() + " > " + pRestrictionField.getNamedParameter() + " ";
+	public String gt( RestrictionField restrictionField, Map<String,Object> namedParametersMap ) {
+		namedParametersMap.put( restrictionField.getFieldParameters().toString(), restrictionField.getFieldInput() );
+		return " " + restrictionField.getFieldParameters().toString() + " > " + restrictionField.getNamedParameter() + " ";
 	}
 
-	public String lt( RestrictionField pRestrictionField, Map<String,Object> pNamedParametersMap ) {
-		pNamedParametersMap.put( pRestrictionField.getFieldParameters().toString(), pRestrictionField.getFieldInput() );
-		return " " + pRestrictionField.getFieldParameters().toString() + " < " + pRestrictionField.getNamedParameter() + " ";
+	public String lt( RestrictionField restrictionField, Map<String,Object> namedParametersMap ) {
+		namedParametersMap.put( restrictionField.getFieldParameters().toString(), restrictionField.getFieldInput() );
+		return " " + restrictionField.getFieldParameters().toString() + " < " + restrictionField.getNamedParameter() + " ";
 	}
 
-	public String le( RestrictionField pRestrictionField, Map<String,Object> pNamedParametersMap ) {
-		pNamedParametersMap.put( pRestrictionField.getFieldParameters().toString(), pRestrictionField.getFieldInput() );
-		return " " + pRestrictionField.getFieldParameters().toString() + " <= " + pRestrictionField.getNamedParameter() + " ";
+	public String le( RestrictionField restrictionField, Map<String,Object> namedParametersMap ) {
+		namedParametersMap.put( restrictionField.getFieldParameters().toString(), restrictionField.getFieldInput() );
+		return " " + restrictionField.getFieldParameters().toString() + " <= " + restrictionField.getNamedParameter() + " ";
 	}
 
-	public String ge( RestrictionField pRestrictionField, Map<String,Object> pNamedParametersMap) {
-		pNamedParametersMap.put( pRestrictionField.getFieldParameters().toString(), pRestrictionField.getFieldInput() );
-		return " " + pRestrictionField.getFieldParameters().toString() + " >= " + pRestrictionField.getNamedParameter() + " ";
+	public String ge( RestrictionField restrictionField, Map<String,Object> namedParametersMap ) {
+		namedParametersMap.put( restrictionField.getFieldParameters().toString(), restrictionField.getFieldInput() );
+		return " " + restrictionField.getFieldParameters().toString() + " >= " + restrictionField.getNamedParameter() + " ";
 	}
 
-	public String between(  RestrictionField pRestrictionField, Map<String,Object> pNamedParametersMap ) {
-		if ( pRestrictionField.getFieldParameters().getRestrictionDataType() == RestrictionDataType.STRING ) {
-			pNamedParametersMap.put( pRestrictionField.getFieldParameters().toString() + "High", pRestrictionField.getBetweenHigh() );
-			pNamedParametersMap.put( pRestrictionField.getFieldParameters().toString() + "Low", pRestrictionField.getBetweenLow() );
-			return " " + pRestrictionField.getNamedParameter() + " BETWEEN " + pRestrictionField.getBetweenLow() + " AND " + pRestrictionField.getBetweenLow() + " ";
+	public String between(  RestrictionField restrictionField, Map<String,Object> namedParametersMap ) {
+		if ( restrictionField.getFieldParameters().getRestrictionDataType() == RestrictionDataType.STRING ) {
+			namedParametersMap.put( restrictionField.getFieldParameters().toString() + "High", restrictionField.getBetweenHigh() );
+			namedParametersMap.put( restrictionField.getFieldParameters().toString() + "Low", restrictionField.getBetweenLow() );
+			return " " + restrictionField.getNamedParameter() + " BETWEEN " + restrictionField.getBetweenLow() + " AND " + restrictionField.getBetweenLow() + " ";
 		}
-		if ( pRestrictionField.getFieldParameters().getRestrictionDataType() == RestrictionDataType.NUMBER ) {
-			pNamedParametersMap.put( pRestrictionField.getFieldParameters().toString() + "High", pRestrictionField.getBetweenHigh() );
-			pNamedParametersMap.put( pRestrictionField.getFieldParameters().toString() + "Low", pRestrictionField.getBetweenLow() );
-			return " " + pRestrictionField.getNamedParameter() + " BETWEEN " + pRestrictionField.getBetweenLow() + " AND " + pRestrictionField.getBetweenLow() + " ";
+		if ( restrictionField.getFieldParameters().getRestrictionDataType() == RestrictionDataType.NUMBER ) {
+			namedParametersMap.put( restrictionField.getFieldParameters().toString() + "High", restrictionField.getBetweenHigh() );
+			namedParametersMap.put( restrictionField.getFieldParameters().toString() + "Low", restrictionField.getBetweenLow() );
+			return " " + restrictionField.getNamedParameter() + " BETWEEN " + restrictionField.getBetweenLow() + " AND " + restrictionField.getBetweenLow() + " ";
 		}
-		if ( pRestrictionField.getFieldParameters().getRestrictionDataType() == RestrictionDataType.DATE ) {
-			pNamedParametersMap.put( pRestrictionField.getFieldParameters().toString() + "Start" , pRestrictionField.getStartDate() );
-			pNamedParametersMap.put( pRestrictionField.getFieldParameters().toString() + "End" , pRestrictionField.getEndDate() );
+		if ( restrictionField.getFieldParameters().getRestrictionDataType() == RestrictionDataType.DATE ) {
+			namedParametersMap.put( restrictionField.getFieldParameters().toString() + "Start" , restrictionField.getStartDate() );
+			namedParametersMap.put( restrictionField.getFieldParameters().toString() + "End" , restrictionField.getEndDate() );
 			return " " + 
-			pRestrictionField.getFieldParameters().toString() +
-			" BETWEEN STR_TO_DATE(" + pRestrictionField.getNamedParameter() + "Start ,'" + MY_SQL_DATE_TIME_FORMAT + "') " +
-			" AND STR_TO_DATE(" + pRestrictionField.getNamedParameter() + "End ,'" + MY_SQL_DATE_TIME_FORMAT + "')";
+			restrictionField.getFieldParameters().toString() +
+			" BETWEEN STR_TO_DATE(" + restrictionField.getNamedParameter() + "Start ,'" + MY_SQL_DATE_TIME_FORMAT + "') " +
+			" AND STR_TO_DATE(" + restrictionField.getNamedParameter() + "End ,'" + MY_SQL_DATE_TIME_FORMAT + "')";
 		}
 		return null;
 	}
 
-	public String in( RestrictionField pRestrictionField, Map<String,Object> pNamedParametersMap ) {
+	public String in( RestrictionField restrictionField, Map<String,Object> namedParametersMap ) {
 		
-		if ( pRestrictionField.getFieldInputCollection() != null && pRestrictionField.getFieldInputCollection().size() > 0 ){
-			pNamedParametersMap.put( pRestrictionField.getFieldParameters().toString(), Arrays.toString( pRestrictionField.getFieldInputCollection().toArray() ) );
-			return " " + pRestrictionField.getFieldParameters().toString() + " IN (" + pRestrictionField.getNamedParameter() + ")";
+		if ( restrictionField.getFieldInputCollection() != null && restrictionField.getFieldInputCollection().size() > 0 ){
+			namedParametersMap.put( restrictionField.getFieldParameters().toString(), Arrays.toString( restrictionField.getFieldInputCollection().toArray() ) );
+			return " " + restrictionField.getFieldParameters().toString() + " IN (" + restrictionField.getNamedParameter() + ")";
 		} 
-		pNamedParametersMap.put( pRestrictionField.getFieldParameters().toString(), Arrays.toString( pRestrictionField.getFieldInputCollection().toArray() ) );
-		return " " + pRestrictionField.getFieldParameters().toString() + " IN (" + pRestrictionField.getNamedParameter() + ")";
+		namedParametersMap.put( restrictionField.getFieldParameters().toString(), Arrays.toString( restrictionField.getFieldInputCollection().toArray() ) );
+		return " " + restrictionField.getFieldParameters().toString() + " IN (" + restrictionField.getNamedParameter() + ")";
 	}
 
-	public String isNull( RestrictionField pRestrictionField, Map<String,Object> pNamedParametersMap ) {
-		pNamedParametersMap.put( pRestrictionField.getFieldParameters().toString(), pRestrictionField.getFieldInput() );
-		return " " + pRestrictionField.getNamedParameter() + " IS NULL ";
+	public String isNull( RestrictionField restrictionField, Map<String,Object> namedParametersMap ) {
+		namedParametersMap.put( restrictionField.getFieldParameters().toString(), restrictionField.getFieldInput() );
+		return " " + restrictionField.getNamedParameter() + " IS NULL ";
 	}
 
 
-	public String isNotNull( RestrictionField pRestrictionField, Map<String,Object> pNamedParametersMap ) {
-		pNamedParametersMap.put( pRestrictionField.getNamedParameter(), pRestrictionField.getFieldInput() );
-		return " " + pRestrictionField.getNamedParameter()  + " IS NOT NULL ";
+	public String isNotNull( RestrictionField restrictionField, Map<String,Object> namedParametersMap ) {
+		namedParametersMap.put( restrictionField.getNamedParameter(), restrictionField.getFieldInput() );
+		return " " + restrictionField.getNamedParameter()  + " IS NOT NULL ";
 	}
 	
-	public String conjunction( RestrictionField pRestrictionField, Map<String,Object> pNamedParametersMap ) {
-		StringBuilder lStringBuilder = new StringBuilder();
-		lStringBuilder.append( " ( " );
-		lStringBuilder.append( " (1=1) " );
+	public String conjunction( RestrictionField restrictionField, Map<String,Object> namedParametersMap ) {
+		StringBuilder stringBuilder = new StringBuilder();
+		stringBuilder.append( " ( " );
+		stringBuilder.append( " (1=1) " );
 		int lIndex = 0;
-		for ( String lStr : pRestrictionField.getFieldInputCollection() ) {
-			pNamedParametersMap.put( pRestrictionField.getNamedParameter() + lIndex, pRestrictionField.getFieldInput() );
-			lStringBuilder.append( " AND " + pRestrictionField.getFieldParameters().toString() + " = " + pRestrictionField.getNamedParameter() + lIndex );
+		for ( String inputField : restrictionField.getFieldInputCollection() ) {
+			namedParametersMap.put( restrictionField.getNamedParameter() + lIndex, restrictionField.getFieldInput() );
+			stringBuilder.append( " AND " + restrictionField.getFieldParameters().toString() + " = " + restrictionField.getNamedParameter() + lIndex );
 		}
-		lStringBuilder.append( " ) " );
-		return " " + pRestrictionField.getNamedParameter()  + " IS NOT NULL ";
+		stringBuilder.append( " ) " );
+		return " " + restrictionField.getNamedParameter()  + " IS NOT NULL ";
 	}
 	
-	public String disjunction( RestrictionField pRestrictionField, Map<String,Object> pNamedParametersMap ) {
+	public String disjunction( RestrictionField restrictionField, Map<String,Object> namedParametersMap ) {
 		StringBuilder lStringBuilder = new StringBuilder();
 		lStringBuilder.append( " ( " );
-		lStringBuilder.append( " 1=0 " );
+		lStringBuilder.append( " 1 = 0 " );
 		int lIndex = 0;
-		for ( String lStr : pRestrictionField.getFieldInputCollection() ) {
-			pNamedParametersMap.put( pRestrictionField.getFieldParameters().toString() + lIndex, lStr );
-			lStringBuilder.append( " OR " + pRestrictionField.getFieldParameters().toString() + " = " + pRestrictionField.getNamedParameter() + lIndex );
+		for ( String lStr : restrictionField.getFieldInputCollection() ) {
+			namedParametersMap.put( restrictionField.getFieldParameters().toString() + lIndex, lStr );
+			lStringBuilder.append( " OR " + restrictionField.getFieldParameters().toString() + " = " + restrictionField.getNamedParameter() + lIndex );
 			lIndex++;
 		}
 		lStringBuilder.append( " ) " );
@@ -171,12 +171,12 @@ public class MySqlRestrictionsEvaluator implements IRestrictionsEvaluator {
 		return " ORDER BY " + StringUtils.arrayToCommaDelimitedString( pOrderByList.toArray( new String[pOrderByList.size()] ) ) + " " + pSortOrder.toString() ;
 	}
 
-	public String groupBy( List<String> pGroupByList ) {
-		return " GROUP BY " + StringUtils.arrayToCommaDelimitedString( pGroupByList.toArray( new String[pGroupByList.size()] ) ) ;
+	public String groupBy( List<String> groupByList ) {
+		return " GROUP BY " + StringUtils.arrayToCommaDelimitedString( groupByList.toArray( new String[groupByList.size()] ) ) ;
 	}
 
-	public String limit( int pLimitFrom, int pLimitTo, int pLimitSize ) {
-		return " LIMIT " + pLimitFrom + ", " + pLimitSize;
+	public String limit( int limitFrom, int limitTo, int limitSize ) {
+		return " LIMIT " + limitFrom + ", " + limitSize;
 	}
 	
 }

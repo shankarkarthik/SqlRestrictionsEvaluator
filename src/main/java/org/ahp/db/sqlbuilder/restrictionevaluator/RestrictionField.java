@@ -12,69 +12,69 @@ import java.util.Collection;
  */
 public class RestrictionField {
 	
-	private IRestrictionFieldParameters mFieldParameters;
-	private Long mId;
-	private String mFieldInput;
-	private String mBetweenLow;
-	private String mBetweenHigh;
-	private Timestamp mBeginDate;
-	private Timestamp mEndDate;
-	private String[] mFieldInputArray;
-	private Collection<String> mFieldInputCollection;
+	private IRestrictionFieldParameters fieldParameters;
+	private Long id;
+	private String fieldInput;
+	private String betweenLow;
+	private String betweenHigh;
+	private Timestamp beginDate;
+	private Timestamp endDate;
+	private String[] fieldInputArray;
+	private Collection<String> fieldInputCollection;
 	
 	public IRestrictionFieldParameters getFieldParameters() {
-		return mFieldParameters;
+		return this.fieldParameters;
 	}
-	public void setFieldParameters( IRestrictionFieldParameters pFieldName ) {
-		mFieldParameters = pFieldName;
+	public void setFieldParameters( IRestrictionFieldParameters fieldParameters ) {
+		this.fieldParameters = fieldParameters;
 	}
 	public String getFieldInput() {
-		return mFieldInput;
+		return this.fieldInput;
 	}
-	public void setFieldInput( String pFieldInput ) {
-		mFieldInput = pFieldInput;
+	public void setFieldInput( String fieldInput ) {
+		this.fieldInput = fieldInput;
 	}
 	public String getBetweenLow() {
-		return mBetweenLow;
+		return this.betweenLow;
 	}
-	public void setBetweenLow( String pBetweenLow ) {
-		mBetweenLow = pBetweenLow;
+	public void setBetweenLow( String betweenLow ) {
+		betweenLow = betweenLow;
 	}
 	public String getBetweenHigh() {
-		return mBetweenHigh;
+		return this.betweenHigh;
 	}
-	public void setBetweenHigh( String pBetweenHigh ) {
-		mBetweenHigh = pBetweenHigh;
+	public void setBetweenHigh( String betweenHigh ) {
+		this.betweenHigh = betweenHigh;
 	}
 	public Timestamp getStartDate() {
-		return mBeginDate;
+		return this.beginDate;
 	}
-	public void setStartDate( Timestamp pStartDate ) {
-		mBeginDate = pStartDate;
+	public void setStartDate( Timestamp startDate ) {
+		this.beginDate = startDate;
 	}
 	public Timestamp getEndDate() {
-		return mEndDate;
+		return this.endDate;
 	}
-	public void setEndDate( Timestamp pEndDate ) {
-		mEndDate = pEndDate;
+	public void setEndDate( Timestamp endDate ) {
+		this.endDate = endDate;
 	}
 	public String[] getFieldInputArray() {
-		return mFieldInputArray;
+		return fieldInputArray;
 	}
-	public void setFieldInputArray( String[] pFieldInputArray ) {
-		mFieldInputArray = pFieldInputArray;
+	public void setFieldInputArray( String[] fieldInputArray ) {
+		this.fieldInputArray = fieldInputArray;
 	}
 	public Collection<String> getFieldInputCollection() {
-		return mFieldInputCollection;
+		return fieldInputCollection;
 	}
-	public void setFieldInputCollection( Collection<String> pFieldInputCollection ) {
-		mFieldInputCollection = pFieldInputCollection;
+	public void setFieldInputCollection( Collection<String> fieldInputCollection ) {
+		this.fieldInputCollection = fieldInputCollection;
 	}
 	public Long getId() {
-		return mId;
+		return id;
 	}
 	public void setId( Long pId ) {
-		mId = pId;
+		this.id = pId;
 	}
 	public String getNamedParameter() {
 		return ":" + this.getFieldParameters().getRestrictableFieldName().toString();
